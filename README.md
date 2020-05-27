@@ -1,5 +1,4 @@
-# java8newFeatures
-Java 8 New Features
+# Java 8 New Features
 
 1. Lambda Expressions
 2. Functional Interfaces - used to call lambda expressions

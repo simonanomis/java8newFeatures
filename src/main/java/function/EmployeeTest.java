@@ -2,6 +2,7 @@ package function;
 
 import java.util.ArrayList;
 import java.util.function.Function;
+import java.util.function.Predicate;
 
 public class EmployeeTest {
     public static void main(String[] args) {
@@ -15,6 +16,19 @@ public class EmployeeTest {
             return totalSalary;
         };
         System.out.println("Total Salary: " + calculateTotalSalary.apply(employees));
+
+        //increment salary
+        Predicate<Employee> employeePredicate = employee -> employee.salary < 3000;
+        Function<Employee, Employee> employeeFunction = employee -> {
+            employee.salary = employee.salary + 477;
+            return employee;
+        };
+        for (Employee empl : employees) {
+            if (employeePredicate.test(empl)) {
+                employeeFunction.apply(empl);
+                System.out.println("Raise for: " + empl.name + " to salary: " +empl.salary);
+            }
+        }
     };
 
     private static void populate(ArrayList<Employee> employees) {

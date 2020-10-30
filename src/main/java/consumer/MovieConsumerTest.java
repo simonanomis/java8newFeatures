@@ -11,10 +11,16 @@ public class MovieConsumerTest {
         Consumer<MovieConsumer> consumer = movieConsumer -> {
             System.out.println("Movie name: " + movieConsumer.name);
         };
+
+        Consumer<MovieConsumer> consumer2 = movieConsumer -> {
+            System.out.println("Movie hero: " + movieConsumer.hero);
+        };
+
+        Consumer<MovieConsumer> chainedConsumer = consumer.andThen(consumer2);
         movieConsumers.forEach(movieConsumer -> {
-           consumer.accept(movieConsumer);
+            chainedConsumer.accept(movieConsumer);
         });
-        
+
     }
 
     private static void populate(ArrayList<MovieConsumer> movieConsumers) {

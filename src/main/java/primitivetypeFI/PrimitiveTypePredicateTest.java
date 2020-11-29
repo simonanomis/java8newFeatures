@@ -4,7 +4,7 @@ package primitivetypeFI;
 import java.util.function.IntPredicate;
 import java.util.function.LongPredicate;
 
-public class IntPredicateTest {
+public class PrimitiveTypePredicateTest {
     public static void main(String[] args) {
         int[] x = {0, 5, 10, 15, 20, 25, 30};
         //IntPredicate
